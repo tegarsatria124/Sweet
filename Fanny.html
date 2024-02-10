@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* CSS untuk efek mengetik */
+        
+        #lyrics {
+            white-space: pre;
+            overflow: hidden;
+            font-size: 24px;
+            border-right: .15em solid orange;
+            font-family: monospace;
+            margin: 0 auto;
+        }
+        
+        button:hover {
+            background-color: #ec328c;
+            transform: scale(1.3);
+        }
+        
+        button {
+            direction: rtl;
+        }
+        
+        audio {
+            width: 50;
+            height: 50;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lyrics"></div>
+
+    <script>
+        // Lirik lagu yang akan ditampilkan
+        const lyrics = [
+            "Haiii fannyy cantik",
+            "kaget kaaahh kamu buka ini??",
+            "lanjut teruss yaa bakal cantik kok habis ini",
+            "Kaya kamu."
+        ];
+
+        // Fungsi untuk menampilkan lirik dengan efek mengetik
+        function typeWriter(text, i, callback) {
+            if (i < text.length) {
+                document.getElementById("lyrics").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(function() {
+                    typeWriter(text, i, callback);
+                }, 50);
+            } else {
+                setTimeout(callback, 1000);
+            }
+        }
+
+        // Fungsi untuk menampilkan lirik satu per satu
+        function displayLyrics() {
+            let lineIndex = 0;
+
+            function displayLine() {
+                if (lineIndex < lyrics.length) {
+                    document.getElementById("lyrics").innerHTML = "";
+                    typeWriter(lyrics[lineIndex], 0, function() {
+                        lineIndex++;
+                        displayLine();
+                    });
+                }
+            }
+            displayLine();
+        }
+
+        // Mulai menampilkan lirik
+        displayLyrics();
+    </script>
+    <center>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button>
+        <a href="video.html">di klik yaa cantikk</a>
+    </button>
+    </center>
+</body>
+
+</html>
